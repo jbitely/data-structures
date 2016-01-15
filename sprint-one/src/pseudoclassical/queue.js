@@ -6,7 +6,16 @@ var Queue = function() {
 Queue.prototype.enqueue = function(value) {
   this[this.end] = value;
   this.end++;
-}
+};
+
+Queue.prototype.dequeue = function() {
+  if (this.end - this.start > 0) {
+    var value = this[this.start];
+    delete this[this.start];
+    this.start++;
+    return value;
+  }
+};
 
 Queue.prototype.size = function() {
   return this.end - this.start;
