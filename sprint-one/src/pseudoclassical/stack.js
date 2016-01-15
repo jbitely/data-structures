@@ -9,10 +9,10 @@ Stack.prototype.push = function(value) {
 
 Stack.prototype.pop = function() {
   if (this.stackSize) {
-  this.stackSize--;
-  var value = this[this.stackSize];
-  delete this[this.stackSize];
-  return value;
+    this.stackSize--;
+    var value = this[this.stackSize];
+    delete this[this.stackSize];
+    return value;
   }
 };
 

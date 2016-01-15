@@ -1,9 +1,7 @@
 var Stack = function() {
   var stack = {};
   stack.stackSize = 0;
-  stack.size = stackMethods.size;
-  stack.push = stackMethods.push;
-  stack.pop = stackMethods.pop;
+  _.extend(stack, stackMethods);
   return stack;
 };
 

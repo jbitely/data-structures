@@ -6,7 +6,7 @@ var Queue = function() {
 };
 
 var queueMethods = {
-  size: function(){
+  size: function() {
     return this.end - this.start;
   },
   enqueue: function(value){
@@ -14,7 +14,7 @@ var queueMethods = {
     this.end++;
   },
   dequeue: function(){
-    if(this.end - this.start >0){
+    if (this.end - this.start > 0){
       var value = this[this.start];
       delete this[this.start];
       this.start++;
