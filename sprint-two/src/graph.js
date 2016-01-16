@@ -52,7 +52,6 @@ Graph.prototype.forEachNode = function(cb) {
       cb(key);
     }
   }
-  console.log(this);
 };
 
 /*
