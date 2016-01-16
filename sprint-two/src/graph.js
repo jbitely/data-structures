@@ -1,10 +1,4 @@
-
-
-// ###Graph Solution
-
-// Instantiate a new graph
 var Graph = function(){
-  this.graph = {}; // potentially unneeded
 };
 
 // ------------------------
@@ -35,20 +29,20 @@ Graph.prototype.removeNode = function(value){
 
 // ------------------------
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
-Graph.prototype.hasEdge = function(fromNode, toNode){
+Graph.prototype.hasEdge = function(fromNode, toNode) {
   return this[fromNode].edges.indexOf(toNode) > -1;
 };
 
 // ------------------------
 // Connects two nodes in a graph by adding an edge between them.
-Graph.prototype.addEdge = function(fromNode, toNode){
+Graph.prototype.addEdge = function(fromNode, toNode) {
   this[fromNode].edges.push(toNode);
   this[toNode].edges.push(fromNode);
 };
 
 // ------------------------
 // Remove an edge between any two specified (by value) nodes.
-Graph.prototype.removeEdge = function(fromNode, toNode){
+Graph.prototype.removeEdge = function(fromNode, toNode) {
   var fromIndex = this[fromNode].edges.indexOf(toNode);
   var toIndex = this[toNode].edges.indexOf(fromNode);
   this[fromNode].edges.splice(fromIndex, 1);
@@ -57,7 +51,13 @@ Graph.prototype.removeEdge = function(fromNode, toNode){
 
 // ------------------------
 // Pass in a callback which will be executed on each node of the graph.
-Graph.prototype.forEachNode = function(cb){
+Graph.prototype.forEachNode = function(cb) {
+  for (var key in this) {
+    if (typeof this[key] !== 'function') {
+      cb(key);
+    }
+  }
+  console.log(this);
 };
 
 /*
