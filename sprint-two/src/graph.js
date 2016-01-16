@@ -22,12 +22,15 @@ Graph.prototype.addNode = function(value){
 Graph.prototype.contains = function(value){
   if(this[value]){
     return true;
+  } else {
+    return false;
   }
 };
 
 // ------------------------
 // Removes a node from the graph.
-Graph.prototype.removeNode = function(node){
+Graph.prototype.removeNode = function(value){
+  delete this[value];
 };
 
 // ------------------------
@@ -38,6 +41,7 @@ Graph.prototype.hasEdge = function(fromNode, toNode){
 // ------------------------
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode){
+  this[fromNode].edges.push(toNode);
 };
 
 // ------------------------
