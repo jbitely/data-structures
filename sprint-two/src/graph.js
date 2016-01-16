@@ -8,17 +8,12 @@ Graph.prototype.addNode = function(value){
   newNode.edges = [];
   newNode.value = value;
   this[value] = newNode;
-  console.log(this);
 };
 
 // ------------------------
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
 Graph.prototype.contains = function(value){
-  if(this[value]){
-    return true;
-  } else {
-    return false;
-  }
+  return this[value] ? true : false;
 };
 
 // ------------------------
@@ -62,6 +57,13 @@ Graph.prototype.forEachNode = function(cb) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ .addNode - constant - O(1)
+ .contains - constant - O(1)
+ .removeNode - constant - O(1)
+ .hasEdge - linear - O(n)
+ .addEdge - constant - O(1)
+ .removeEdge - linear - O(n)
+ .forEachNode - linear - O(n)
  */
 
 
