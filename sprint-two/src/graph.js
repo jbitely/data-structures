@@ -4,16 +4,25 @@
 
 // Instantiate a new graph
 var Graph = function(){
+  this.graph = {}; // potentially unneeded
 };
 
 // ------------------------
 // Add a node to the graph, passing in the node's value.
-Graph.prototype.addNode = function(node){
+Graph.prototype.addNode = function(value){
+  var newNode = {};
+  newNode.edges = [];
+  newNode.value = value;
+  this[value] = newNode;
+  console.log(this);
 };
 
 // ------------------------
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
-Graph.prototype.contains = function(node){
+Graph.prototype.contains = function(value){
+  if(this[value]){
+    return true;
+  }
 };
 
 // ------------------------
