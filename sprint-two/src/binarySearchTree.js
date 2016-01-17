@@ -25,25 +25,25 @@ var BinarySearchTree = function(value) {
     return tree;
   };
 
-  tree.contains = function(value){
+  tree.contains = function(value) {
     var found = false;
     console.log(tree);
     console.log(tree.value);
     if(tree.value === value){
       return true;
     } else {
-      if(value < tree.value && tree.left){
+      if(value < tree.value && tree.left) {
         found = tree.left.contains(value);
-      } else if (value > tree.value && tree.right){
+      } else if (value > tree.value && tree.right) {
         found = tree.right.contains(value);
       }
     }
     return found;
   };
 
-  tree.depthFirstLog = function(cb){
+  tree.depthFirstLog = function(cb) {
     cb(tree.value);
-    if(tree.left){
+    if(tree.left) {
       tree.left.depthFirstLog(cb);
     }
     if(tree.right){
@@ -57,4 +57,7 @@ var BinarySearchTree = function(value) {
 
 /*
  * Complexity: What is the time complexity of the above functions?
+ .insert - logarithmic - O(log(n))
+ .contains - logarithmic - O(log(n))
+ .depthFirstLog - linear - O(n)
  */
