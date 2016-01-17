@@ -1,10 +1,10 @@
-var BinarySearchTree = function(value){
+var BinarySearchTree = function(value) {
   var tree = {};
   tree.value = value;
   tree.right = null;
   tree.left = null;
 
-  tree.insert = function(value){
+  tree.insert = function(value) {
   // is new value less than or greater than current value
     // if less than call insert starting with left node
     if(value < tree.value){
@@ -41,7 +41,14 @@ var BinarySearchTree = function(value){
     return found;
   };
 
-  tree.depthFirstLog = function(){
+  tree.depthFirstLog = function(cb){
+    cb(tree.value);
+    if(tree.left){
+      tree.left.depthFirstLog(cb);
+    }
+    if(tree.right){
+      tree.right.depthFirstLog(cb);
+    }
   };
 
   return tree;
